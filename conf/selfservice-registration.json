@@ -1,0 +1,55 @@
+{
+    "allInOneRegistration" : false,
+    "stageConfigs" : [
+        {
+            "name" : "parameters",
+            "parameterNames" : [
+                "returnParams"
+            ]
+        },
+        {
+            "name" : "idmUserDetails",
+            "identityEmailField" : "mail",
+            "socialRegistrationEnabled" : false,
+            "registrationProperties" : [
+                "userName",
+                "givenName",
+                "sn",
+                "mail"
+            ],
+            "identityServiceUrl" : "managed/user",
+            "registrationPreferences" : [
+                "updates",
+                "marketing"
+            ]
+        },
+        {
+            "name" : "termsAndConditions"
+        },
+        {
+      		"class" : "org.forgerock.selfservice.custom.ChoiceStageConfig",
+                "choices" : [
+                        "SMS",
+                        "E-Mail"
+                ]
+        },
+        {
+            "name" : "selfRegistration",
+            "identityServiceUrl" : "managed/user"
+        },
+        {
+            "name" : "localAutoLogin",
+            "identityUsernameField" : "userName",
+            "identityPasswordField" : "password",
+            "successUrl" : ""
+        }
+    ],
+    "snapshotToken" : {
+        "type" : "jwt",
+        "jweAlgorithm" : "RSAES_PKCS1_V1_5",
+        "encryptionMethod" : "A128CBC_HS256",
+        "jwsAlgorithm" : "HS256",
+        "tokenExpiry" : 300
+    },
+    "storage" : "stateless"
+}
