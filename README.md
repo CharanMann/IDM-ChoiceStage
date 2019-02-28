@@ -32,7 +32,7 @@ IDM UI Build:
       
 IDM testing:
 =========================
-1. 
+1. ![CustomStageDropdown](./CustomStageDropdown.png)
    
         
 * * *
