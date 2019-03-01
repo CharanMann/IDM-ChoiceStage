@@ -27,6 +27,7 @@ import org.forgerock.selfservice.core.ProcessContext;
 import org.forgerock.selfservice.core.ProgressStage;
 import org.forgerock.selfservice.core.StageResponse;
 import org.forgerock.selfservice.core.util.RequirementsBuilder;
+import org.forgerock.util.Reject;
 
 import java.util.List;
 
@@ -35,14 +36,14 @@ import static org.forgerock.selfservice.core.util.RequirementsBuilder.oneOf;
 
 /**
  * Choice stage to select require choice.
- *
- * @since 0.7.0
  */
 public final class ChoiceStage implements ProgressStage<ChoiceStageConfig> {
 
     @Override
     public JsonValue gatherInitialRequirements(
             ProcessContext context, ChoiceStageConfig config) throws ResourceException {
+
+        Reject.ifNull(config.getChoices(), "No choices configured");
 
         JsonValue[] choicesJson = generateChoiceJSONArray(config.getChoices());
 
@@ -73,6 +74,10 @@ public final class ChoiceStage implements ProgressStage<ChoiceStageConfig> {
 
         if (selectedChoice.isNull()) {
             throw new BadRequestException("No option selected");
+        }
+
+        if (!config.getChoices().contains(selectedChoice.asString())) {
+            throw new BadRequestException("Invalid option selected");
         }
 
         context.putState(ChoiceStageConfig.SELECTED_CHOICE_FIELD, selectedChoice.asString());

@@ -27,8 +27,6 @@ import java.util.Objects;
 
 /**
  * Represents the config for a Choice stage
- *
- * @since 0.7.0
  */
 public final class ChoiceStageConfig implements StageConfig {
 
