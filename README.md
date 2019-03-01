@@ -19,20 +19,22 @@ Pre-requisites :
 ================
 * Versions used for this project: IDM 6.5
 1. IDM has been installed and configured.
-2. IDM registration self-service has been enabled 
 
+IDM UI:
+=====================
+1. Refer instructions: *[How to Add a Self-Service Stage to the UI](https://github.com/ForgeRock/end-user-ui#how-to-add-a-self-service-stage-to-the-ui)* for general instructions on implementing UI for custom stage.
+2. Refer sample code under end-user-ui for files that are required to be changed for adding "Choice stage".
+3. Build modified UI as per *[How to Add Additional Registration Flows](https://github.com/ForgeRock/end-user-ui#how-to-replace-idm-end-user)*
 
 IDM Configuration:
 =====================
-1. 
+1. *[Build and deploy choice self-service stage](https://backstage.forgerock.com/docs/idm/6.5/self-service-reference/#custom-stage-building)*. 
+2. *[Test choice self-service stage](https://backstage.forgerock.com/docs/idm/6.5/self-service-reference/#custom-stage-testing)*. Refer conf/selfservice-registration.json for sample configuration.  
 
-IDM UI Build:
-=====================
-1. 
-      
 IDM testing:
 =========================
-1. ![CustomStageDropdown](./CustomStageDropdown.png)
+1. Choice self-service stage shall be displayed during registration flow, refer below image:
+![CustomStageDropdown](./CustomStageDropdown.png)
    
         
 * * *
