@@ -1,6 +1,6 @@
 # IDM-ChoiceStage
 
-IDM custom self-service stage <br />
+IDM custom self-service stage sample to select required OTP delivery option like SMS or Email etc <br />
 
 Disclaimer of Liability :
 =========================
